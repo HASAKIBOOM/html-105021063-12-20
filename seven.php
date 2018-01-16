@@ -1,3 +1,6 @@
+<?php session_start();
+include ("mysql_connect.inc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,20 +58,25 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="home.html">首頁</a></li>
-                <li><a href="seven.html">著作</a></li>
-                <li><a href="eight.html">學術研究</a></li>
-                <li><a href="one.html">計算機組織</a></li>
-                <li><a href="two.html">微處理器系統</a></li>
-                <li><a href="three.html">資工１Ａ導生</a></li>
-                <li><a href="four.html">個人檔案</a></li>
+                <li class="active"><a href="home.php">首頁</a></li>
+                <li><a href="four.php">簡歷</a></li>
+                <li><a href="seven.php">著作</a></li>
+                <li><a href="one.php">計算機組織</a></li>
+                <li><a href="two.php">微處理器系統</a></li>
+                <li><a href="three.php">資工１Ａ導生</a></li>
+                <li><a href="five.php">無線網路</a></li>
+                <li><a href="six.php">多媒體網站技術應用</a></li>
                 <li><a href="RikkiRabit.pdf">瑞奇的煩惱</a></li>
-                <li><a href="five.html">無線網路</a></li>
-                <li><a href="six.html">多媒體網站技術應用</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> 登出</a></li>
+                <?php
+                if ($_SESSION['username'] != null){
+                    echo "<li><a href=\"logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span> 登出</a></li>";
+                }else{
+                    echo "<li><a href=\"login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> 登入</a></li>";
+                }
+                ?>
             </ul>
         </div>
     </div>
@@ -77,38 +85,42 @@
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-            <p><a href="#"></a></p>
-            <p><a href="#"></a></p>
-            <p><a href="#"></a></p>
+
+            <button><a href="add.php">新增</a></button><br>
+            <button><a href="update.php">修改</a></button><br>
+            <button><a href="delete.php">刪除</a></button>
+
+            <?php
+            $sql = "SELECT * FROM seven";
+            $result = mysqli_query($link, $sql);
+            while($row = mysqli_fetch_row($result)){
+                echo "<ul1>".$row[1]."</ul1><br>";
+            }
+            ?>
+            <!--            <ul1>沙鹿國小 (1972.9-1978.6)</ul1><br>-->
+            <!--            <ul1>沙鹿國中 (1978.9-1981.6)</ul1><br>-->
+            <!--            <ul1>台中一中 (1981.9-1984.6)</ul1><br>-->
+            <!--            <ul1>大同工學院資訊工程系   (1985.9-1989.6)</ul1><br>-->
+            <!--            <ul1>中正大學資訊工程所 碩士(1991.9-1993.6)</ul1><br>-->
+            <!--            <ul1>中正大學資訊工程所 博士(1993.9-2002.6)</ul1><br>-->
         </div>
         <div class="col-sm-8 text-left">
             <h1 align="center">
-                <span style="color: #0b78ff" >歡迎來到陳瑞奇老師<span style="color: #ff0024">の</span>
-                    首頁<img src="ddb0008ccd5771baa78.gif" height="75" width="75"/></span>
+                <span style="color: #0b78ff">著作</span>
             </h1>
             <p align="center">
-                <span style="color:black">Welcome to Rikki Chen's Homepage</span>
+                <span style="color:black">(Rikky Works)</span>
             </p>
-            <hr>
-            <h3>公佈欄(Bulletin Board)</h3>
-            <hr width=80% align=center>
-            <TABLE width="80%" border="1">
-                <tr><td width="14%" class="td1"> 日 期 (Date)</td><td class="td1"> 公 告 事 項 (Information)</td></tr>
-                <tr><td>2017/11/18</td><td><font color=red><b>2017/12/02星期六(Saturday)</b></font>中亞聯合大學系統暨醫療體系運動大會(China Asia Associated University Games)  </td></tr>
-                <tr><td>2017/11/01</td><td><font color=black><b>第九週(2017/11/13~11/18)期中考(Midterm)</b></font>  </td></tr>
-                <tr><td>2017/10/04</td><td>10月4日(星期三)<font color=black><b>中秋節快樂(Happy Mid-Autumn Festival)</b></font>！</td></tr>
-                <tr><td>2017/09/18</td><td>請益時間(Office Hours):  <br />Tue.(二) 13:10 – 16:00  &nbsp;&nbsp; Wed.(三) 9:10 – 12:00  &nbsp;&nbsp; Thu.(四) 13:10 – 16:00</td></tr>
-                <TR><TD>2017/09/14</TD><TD>9/18開學日、開始上課，9/18~9/27日全校加退選。</TD></tr>
-                <tr><td>2017/09/04</td><td><a href="http://www.asia.edu.tw/main.php?information/information_01/information_106y" target=blank>亞洲大學106學年度行事曆(2017 School Academic Year Calendar)</a></td></tr>
-                <tr><td>2017/09/03</td><td><a href="coa106/coa.htm">計算機組織課程公告(Class: Computer Organization)</a></td></tr>
-                <tr><td>2017/09/03</td><td><a href="mps106/mps.htm">微處理器系統課程公告(Class: Microprocessor System)</a></td></tr>
+            　　　　　　<h1 align="center"><a href="work1.php">-->期刊論文<--</a></h1>
+            <h2 align="center"><a href="work2.php">-->研究計畫<--</a></h2>
+            <h3 align="center"><a href="work3.php">-->研討會論文<--</a></h3>
 
-                </pre>
-            </TABLE>
+
 
 
         </div>
         <div class="col-sm-2 sidenav">
+
 
         </div>
     </div>
@@ -123,3 +135,4 @@
 
 </body>
 </html>
+

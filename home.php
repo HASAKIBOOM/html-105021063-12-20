@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,20 +56,25 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="home.html">首頁</a></li>
-                <li><a href="seven.html">著作</a></li>
-                <li><a href="eight.html">學術研究</a></li>
-                <li><a href="one.html">計算機組織</a></li>
-                <li><a href="two.html">微處理器系統</a></li>
-                <li><a href="three.html">資工１Ａ導生</a></li>
-                <li><a href="four.html">個人檔案</a></li>
+                <li class="active"><a href="home.php">首頁</a></li>
+                <li><a href="four.php">簡歷</a></li>
+                <li><a href="seven.php">著作</a></li>
+                <li><a href="one.php">計算機組織</a></li>
+                <li><a href="two.php">微處理器系統</a></li>
+                <li><a href="three.php">資工１Ａ導生</a></li>
+                <li><a href="five.php">無線網路</a></li>
+                <li><a href="six.php">多媒體網站技術應用</a></li>
                 <li><a href="RikkiRabit.pdf">瑞奇的煩惱</a></li>
-                <li><a href="five.html">無線網路</a></li>
-                <li><a href="six.html">多媒體網站技術應用</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> 登出</a></li>
+                <?php
+                if ($_SESSION['username'] != null){
+                    echo "<li><a href=\"logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span> 登出</a></li>";
+                }else{
+                    echo "<li><a href=\"login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> 登入</a></li>";
+                }
+                ?>
             </ul>
         </div>
     </div>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,18 +56,25 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a hrefs="home.html">首頁</a></li>
-                <li><a href="one.html">計算機組織</a></li>
-                <li><a href="two.html">微處理器系統</a></li>
-                <li><a href="three.html">資工１Ａ導生</a></li>
-                <li><a href="four.html">個人檔案</a></li>
+                <li class="active"><a href="home.php">首頁</a></li>
+                <li><a href="four.php">簡歷</a></li>
+                <li><a href="seven.php">著作</a></li>
+                <li><a href="one.php">計算機組織</a></li>
+                <li><a href="two.php">微處理器系統</a></li>
+                <li><a href="three.php">資工１Ａ導生</a></li>
+                <li><a href="five.php">無線網路</a></li>
+                <li><a href="six.php">多媒體網站技術應用</a></li>
                 <li><a href="RikkiRabit.pdf">瑞奇的煩惱</a></li>
-                <li><a href="five.html">無線網路</a></li>
-                <li><a href="six.html">多媒體網站技術應用</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> 登出</a></li>
+                <?php
+                if ($_SESSION['username'] != null){
+                    echo "<li><a href=\"logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span> 登出</a></li>";
+                }else{
+                    echo "<li><a href=\"login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> 登入</a></li>";
+                }
+                ?>
             </ul>
         </div>
     </div>
@@ -81,7 +89,7 @@
         </div>
         <div class="col-sm-8 text-left">
             <h1 align="center">
-                <span style="color: #0b78ff">個人檔案<img src="WHnuA2O.gif" height="75" width="100"/></span>
+                <span style="color: #0b78ff">簡歷</span>
             </h1>
             <p align="center">
                 <span style="color:black">(Rikki's Profile)</span>
@@ -89,18 +97,31 @@
             <h2 align="center">
             <img src="rikkiphoto1.jpg" height="120" width="180"/><br>
             <font size="2">
-                Jui-Chi Chen (陳瑞奇)(Rikki)<br>
-            Associate Professor<br>
-            Department of Computer Science and Information Engineering<br>
-            Asia University, Taiwan <br>
-            Ph.D. in Computer Science<br>
-            National Chung Hsing University<br>
-            B.S., M.S. in Computer Science and Information Engineering<br>
-            National Chiao Tung University<br>
-            <br>
-            Office: Room HB13 (B1 of Computer Sci. Bldg)<br>
-            Tel: (04)2332-3456 ext. 20013<br>
-            Fax: (04)2330-5737<br>
+                <h2>基本資料</h2>
+
+                <head>
+                    <meta http-equiv="Content-Type"content="text/html";charset="utf-8"/>
+                </head>
+
+                姓名:陳瑞奇<br>任職單位:資訊工程學系副教授<br>email:rikki@asia.edu.tw<br><br><!--            <p><b>姓名：</b>陳瑞奇-->
+                <!--            <p><b>任職單位：</b>資訊工程學系副教授-->
+                <!--            <p><b>E-mail：</b><a href="mailto:rikki@asia.edu.tw">rikki@asia.edu.tw</a></p>-->
+                <hr>
+                <h2>學歷</h2>
+                <head>
+                    <meta http-equiv="Content-Type"content="text/html";charset="utf-8"/>
+                </head>
+
+                國立中興大學資訊科學博士、國立交通大學資訊工程碩士、國立交通大學資訊工程學士<br>
+                <hr>
+                <h2>經歷</h2>
+                <head>
+                    <meta http-equiv="Content-Type"content="text/html";charset="utf-8"/>
+                </head>
+
+                亞洲大學副教授、亞洲大學助理教授、工研院電腦與通訊工業研究所工程師<br>
+
+
             </font>
             </h2>
 

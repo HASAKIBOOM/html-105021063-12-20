@@ -86,23 +86,23 @@ include ("mysql_connect.inc.php");
     <div class="row content">
         <div class="col-sm-2 sidenav">
 
+
             <button><a href="add.php">新增</a></button><br>
             <button><a href="update.php">修改</a></button><br>
             <button><a href="delete.php">刪除</a></button>
 
             <?php
-            $sql = "SELECT * FROM seven";
+            $sql = "SELECT * FROM education";
             $result = mysqli_query($link, $sql);
             while($row = mysqli_fetch_row($result)){
                 echo "<ul1>".$row[1]."</ul1><br>";
             }
+
+
             ?>
-            <!--            <ul1>沙鹿國小 (1972.9-1978.6)</ul1><br>-->
-            <!--            <ul1>沙鹿國中 (1978.9-1981.6)</ul1><br>-->
-            <!--            <ul1>台中一中 (1981.9-1984.6)</ul1><br>-->
-            <!--            <ul1>大同工學院資訊工程系   (1985.9-1989.6)</ul1><br>-->
-            <!--            <ul1>中正大學資訊工程所 碩士(1991.9-1993.6)</ul1><br>-->
-            <!--            <ul1>中正大學資訊工程所 博士(1993.9-2002.6)</ul1><br>-->
+
+
+
         </div>
         <div class="col-sm-8 text-left">
             <h1 align="center">
@@ -111,10 +111,10 @@ include ("mysql_connect.inc.php");
             <p align="center">
                 <span style="color:black">(Rikky Works)</span>
             </p>
-            　　　　　　<h1 align="center"><a href="work1.php">-->期刊論文<--</a></h1>
+            　　　　　　
+            <h1 align="center"><a href="work1.php">-->期刊論文<--</a></h1>
             <h2 align="center"><a href="work2.php">-->研究計畫<--</a></h2>
             <h3 align="center"><a href="work3.php">-->研討會論文<--</a></h3>
-
 
 
 
